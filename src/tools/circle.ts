@@ -19,15 +19,16 @@ export class Circle {
    */
   static draw(
     ctx: CanvasRenderingContext2D,
-    circle: Circle,
-    fillStyle: string = 'white',
+    centerX: number,
+    centerY: number,
+    radius: number,
+    fillStyle?: string,
     strokeStyle?: string
   ) {
-    const { x, y } = circle.center;
     ctx.save();
 
     ctx.beginPath();
-    ctx.arc(x, y, circle.radius, 0, Math.PI * 2);
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.closePath();
 
     if (fillStyle) {

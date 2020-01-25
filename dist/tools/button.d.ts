@@ -16,6 +16,11 @@ export interface Button extends ClickEventObject, HoverEventObject {
 }
 export declare class Button {
     private constructor();
-    static draw: (ctx: CanvasRenderingContext2D) => ({ x, y, width, height, radius, fillStyle, strokeStyle, borderWidth, hoverStyle, text, font, textStyle, state }: Button) => void;
+    /**
+     *
+     * @param ctx - CanvasRenderingContext2D
+     * @param button - Button
+     */
+    static draw(ctx: CanvasRenderingContext2D, { x, y, width, height, radius, fillStyle, strokeStyle, borderWidth, hoverStyle, text, font, textStyle, state }: Button): void;
 }
 //# sourceMappingURL=button.d.ts.map

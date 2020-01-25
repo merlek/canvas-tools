@@ -22,21 +22,29 @@ export interface Button extends ClickEventObject, HoverEventObject {
 }
 export class Button {
   private constructor() {}
-  static draw = (ctx: CanvasRenderingContext2D) => ({
-    x,
-    y,
-    width,
-    height,
-    radius,
-    fillStyle,
-    strokeStyle = 'rgba(255,255,255,0)',
-    borderWidth = Math.min(4, (width / 36) * 4),
-    hoverStyle,
-    text,
-    font,
-    textStyle,
-    state
-  }: Button) => {
+  /**
+   * 
+   * @param ctx - CanvasRenderingContext2D
+   * @param button - Button
+   */
+  static draw(
+    ctx: CanvasRenderingContext2D,
+    {
+      x,
+      y,
+      width,
+      height,
+      radius,
+      fillStyle,
+      strokeStyle = 'rgba(255,255,255,0)',
+      borderWidth = Math.min(4, (width / 36) * 4),
+      hoverStyle,
+      text,
+      font,
+      textStyle,
+      state
+    }: Button
+  ) {
     ctx.save();
 
     if (state === 'hover' && hoverStyle) {
@@ -75,5 +83,5 @@ export class Button {
     );
 
     ctx.restore();
-  };
+  }
 }

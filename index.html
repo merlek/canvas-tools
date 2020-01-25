@@ -13,8 +13,46 @@
     </style>
   </head>
   <body>
-    <canvas id="canvas" width="100" height="100"></canvas>
+    <div class="example">
+      <p>Button</p>
+      <canvas id="btn" width="100" height="50"></canvas>
+    </div>
+    <div class="example">
+      <p>Circle</p>
+      <canvas id="circle" width="100" height="50"></canvas>
+    </div>
   </body>
   <script src="./dist/CanvasTools.js"></script>
-  <script src="index.js"></script>
+  <script>
+    function ctx(canvasId) {
+      return document.getElementById(canvasId).getContext('2d');
+    }
+    window.addEventListener('load', () => {
+      const x = 100 / 2;
+      const y = 50 / 2;
+
+      const fillStyle = 'blue';
+      const strokeStyle = 'black';
+
+      const btn = {
+        x,
+        y,
+        width:50,
+        height:20,
+        radius: 5,
+        fillStyle: 'rgb(0,74,127)',
+        hoverStyle: 'rgb(0,93,157)',
+        text: 'Button',
+        font: 'Arial',
+        textStyle: 'white',
+        enabled: true,
+        onClick: () => {
+          alert('clicked!');
+        }
+      };
+      CanvasTools.Button.draw(ctx('btn'), btn);
+
+      CanvasTools.Circle.draw(ctx('circle'), x, y, 20, fillStyle, strokeStyle);
+    });
+  </script>
 </html>
