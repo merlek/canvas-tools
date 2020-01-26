@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
    entry: {
-      'CanvasTools': './src/canvas-tools.ts'
+      'canvas-tools': './src/canvas-tools.ts'
    },
    devtool: 'inline-source-map',
    module: {
@@ -21,7 +21,7 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
       libraryTarget: 'umd',
-      library: 'CanvasTools',
+      library: 'canvas-tools',
       umdNamedDefine: true
    },
    optimization: {

@@ -25,14 +25,14 @@
       "git-dist": "git add -A dist",
       "git-src": "git add -A src"
    },
-   "keywords": [
-      "Canvas API",
-      "animation"
-   ],
    "repository": {
       "type": "git",
       "url": "git+https://github.com/merlek/canvas-tools.git"
    },
+   "keywords": [
+      "Canvas API",
+      "animation"
+   ],
    "author": "merlek",
    "license": "MIT",
    "dependencies": {

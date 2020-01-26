@@ -26,8 +26,9 @@
       <canvas id="line" width="100" height="50"></canvas>
     </div>
   </body>
-  <script src="./dist/CanvasTools.js"></script>
+  <script src="./dist/canvas-tools.js"></script>
   <script>
+    const CanvasTools = window['canvas-tools'];
     const cnvs = canvasId => document.getElementById(canvasId);
     const ctx = canvasId => cnvs(canvasId).getContext('2d');
 
