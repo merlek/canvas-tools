@@ -15,7 +15,7 @@ export class Mouse {
   private constructor() {}
   static addClickEventListener = (
     canvas: HTMLCanvasElement,
-    buttons: ClickEventObject[]
+    ...buttons: ClickEventObject[]
   ) => {
     const getMousePos = Mouse.getMousePos(canvas);
 
@@ -38,7 +38,7 @@ export class Mouse {
   };
   static addHoverEventListener = (
     canvas: HTMLCanvasElement,
-    buttons: HoverEventObject[]
+    ...buttons: HoverEventObject[]
   ) => {
     const getMousePos = Mouse.getMousePos(canvas);
 

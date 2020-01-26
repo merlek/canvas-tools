@@ -9,9 +9,9 @@ export interface Rect {
 
 export class Rect {
   private constructor() {}
-  static isIntersect = (pos: Point, button: Rect) =>
-    pos.x > button.x &&
-    pos.x < button.x + button.width &&
-    pos.y < button.y + button.height &&
-    pos.y > button.y;
+  static isIntersect = (pos: Point, rect: Rect) =>
+    pos.x > rect.x &&
+    pos.x < rect.x + rect.width &&
+    pos.y < rect.y + rect.height &&
+    pos.y > rect.y;
 }

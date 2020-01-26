@@ -5,14 +5,11 @@ import {
 } from './mouse';
 import { RoundedRect } from './rounded-rect';
 import { Text } from './text';
-export interface Button extends ClickEventObject, HoverEventObject {
-  radius: number;
-  fillStyle: string;
-  strokeStyle?: string;
+export interface Button extends RoundedRect, ClickEventObject, HoverEventObject {
   borderWidth?: number;
   hoverStyle?: string;
   text: string;
-  font: string;
+  fontFamily: string;
   textStyle: string | (() => string);
   state?: 'hover' | undefined;
   enabled: boolean;
@@ -23,7 +20,7 @@ export interface Button extends ClickEventObject, HoverEventObject {
 export class Button {
   private constructor() {}
   /**
-   * 
+   *
    * @param ctx - CanvasRenderingContext2D
    * @param button - Button
    */
@@ -40,7 +37,7 @@ export class Button {
       borderWidth = Math.min(4, (width / 36) * 4),
       hoverStyle,
       text,
-      font,
+      fontFamily,
       textStyle,
       state
     }: Button
@@ -48,39 +45,37 @@ export class Button {
     ctx.save();
 
     if (state === 'hover' && hoverStyle) {
-      ctx.fillStyle = hoverStyle;
+      fillStyle = hoverStyle;
     } else if (fillStyle) {
-      ctx.fillStyle = fillStyle;
+      fillStyle = fillStyle;
     }
 
     ctx.lineWidth = borderWidth;
 
     if (state === 'hover' && hoverStyle) {
-      ctx.strokeStyle = hoverStyle;
+      strokeStyle = hoverStyle;
     } else if (strokeStyle) {
-      ctx.strokeStyle = strokeStyle;
+      strokeStyle = strokeStyle;
     }
 
-    RoundedRect.draw(
-      ctx,
+    RoundedRect.draw(ctx, {
       x,
       y,
       width,
       height,
       radius,
-      true,
-      strokeStyle != null
-    );
+      fillStyle,
+      strokeStyle
+    });
 
-    Text.draw(
-      ctx,
+    Text.draw(ctx, {
       text,
-      x + width / 2,
-      y + height / 2,
-      width * 0.9,
-      font,
-      typeof textStyle === 'string' ? textStyle : textStyle()
-    );
+      x: x + width / 2,
+      y: y + height / 2,
+      maxWidth: width * 0.9,
+      font: fontFamily,
+      fillStyle: typeof textStyle === 'string' ? textStyle : textStyle()
+    });
 
     ctx.restore();
   }

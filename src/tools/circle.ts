@@ -3,6 +3,8 @@ import { Point } from './point';
 export interface Circle {
   center: Point;
   radius: number;
+  fillStyle?: string;
+  strokeStyle?: string;
 }
 export class Circle {
   private constructor() {}
@@ -19,16 +21,12 @@ export class Circle {
    */
   static draw(
     ctx: CanvasRenderingContext2D,
-    centerX: number,
-    centerY: number,
-    radius: number,
-    fillStyle?: string,
-    strokeStyle?: string
+    { center, radius, fillStyle, strokeStyle }: Circle
   ) {
     ctx.save();
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
     ctx.closePath();
 
     if (fillStyle) {

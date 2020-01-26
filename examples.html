@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Canvas Tools Demo</title>
+    <title>Canvas Tools Examples</title>
     <style>
       canvas {
         border: 1px solid black;
@@ -21,6 +21,10 @@
       <p>Circle</p>
       <canvas id="circle" width="100" height="50"></canvas>
     </div>
+    <div class="example">
+      <p>Line</p>
+      <canvas id="line" width="100" height="50"></canvas>
+    </div>
   </body>
   <script src="./dist/CanvasTools.js"></script>
   <script>
@@ -32,16 +36,20 @@
     const x = w / 2;
     const y = h / 2;
 
+    const fillStyle = 'rgb(0,93,157)';
+    const hoverStyle = 'rgb(0,74,127)';
+    const strokeStyle = 'rgb(0,74,127)';
+
     const btnObj = {
       x: x - w / 4,
       y: y - h / 4,
       width: w / 2,
       height: h / 2,
       radius: 5,
-      fillStyle: 'rgb(0,93,157)',
-      hoverStyle: 'rgb(0,74,127)',
+      fillStyle,
+      hoverStyle,
       text: 'Button',
-      font: 'Arial',
+      fontFamily: 'Arial',
       textStyle: 'white',
       enabled: true,
       onClick: () => alert('clicked!'),
@@ -54,16 +62,21 @@
         CanvasTools.Button.draw(ctx('btn'), btnObj);
       }
     };
+    CanvasTools.Button.draw(ctx('btn'), btnObj);
+    CanvasTools.Mouse.addClickEventListener(cnvs('btn'), btnObj);
+    CanvasTools.Mouse.addHoverEventListener(cnvs('btn'), btnObj);
 
-    window.addEventListener('load', () => {
-      const fillStyle = 'blue';
-      const strokeStyle = 'black';
+    const circleObj = {
+      center: { x, y },
+      radius: 20,
+      fillStyle
+    };
+    CanvasTools.Circle.draw(ctx('circle'), circleObj);
 
-      CanvasTools.Button.draw(ctx('btn'), btnObj);
-      CanvasTools.Mouse.addClickEventListener(cnvs('btn'), [btnObj]);
-      CanvasTools.Mouse.addHoverEventListener(cnvs('btn'), [btnObj]);
-
-      CanvasTools.Circle.draw(ctx('circle'), x, y, 20, fillStyle, strokeStyle);
+    ctx('line').strokeStyle = strokeStyle;
+    CanvasTools.Line.draw(ctx('line'), {
+      start: { x: x - w / 4, y: y - h / 4 },
+      end: { x: x + w / 4, y: y + h / 4 }
     });
   </script>
 </html>

@@ -12,11 +12,11 @@ export interface HoverEventObject extends Rect {
 }
 export declare class Mouse {
     private constructor();
-    static addClickEventListener: (canvas: HTMLCanvasElement, buttons: ClickEventObject[]) => {
+    static addClickEventListener: (canvas: HTMLCanvasElement, ...buttons: ClickEventObject[]) => {
         type: string;
         function: MouseEventListener;
     };
-    static addHoverEventListener: (canvas: HTMLCanvasElement, buttons: HoverEventObject[]) => {
+    static addHoverEventListener: (canvas: HTMLCanvasElement, ...buttons: HoverEventObject[]) => {
         type: string;
         function: MouseEventListener;
     };

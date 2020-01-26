@@ -1,5 +1,10 @@
 import { Point } from './point';
+export interface Line {
+    start: Point;
+    end: Point;
+}
 export declare class Line {
-    static draw: (ctx: CanvasRenderingContext2D, p1: Point, p2: Point) => void;
+    private constructor();
+    static draw: (ctx: CanvasRenderingContext2D, { start, end }: Line) => void;
 }
 //# sourceMappingURL=line.d.ts.map

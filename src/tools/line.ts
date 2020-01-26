@@ -1,10 +1,16 @@
 import { Point } from './point';
 
+export interface Line {
+  start: Point;
+  end: Point;
+}
+
 export class Line {
-  static draw = (ctx: CanvasRenderingContext2D, p1: Point, p2: Point) => {
+  private constructor() {}
+  static draw = (ctx: CanvasRenderingContext2D, { start, end }: Line) => {
     ctx.beginPath();
-    ctx.moveTo(p1.x, p1.y);
-    ctx.lineTo(p2.x, p2.y);
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(end.x, end.y);
     ctx.stroke();
     ctx.closePath();
   };

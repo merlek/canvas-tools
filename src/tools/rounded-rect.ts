@@ -1,20 +1,22 @@
+import { Rect } from './rect';
+
 export interface RoundedRectRadius {
   tl: number;
   tr: number;
   br: number;
   bl: number;
 }
+
+export interface RoundedRect extends Rect {
+  radius: number | RoundedRectRadius;
+  fillStyle?: string;
+  strokeStyle?: string;
+}
 export class RoundedRect {
   private constructor() {}
   static draw(
     ctx: CanvasRenderingContext2D,
-    x: number,
-    y: number,
-    width: number,
-    height: number,
-    radius: number | RoundedRectRadius = 10,
-    fill = true,
-    stroke = false
+    { x, y, width, height, radius, fillStyle, strokeStyle }: RoundedRect
   ) {
     if (typeof radius === 'number') {
       radius = {
@@ -44,10 +46,12 @@ export class RoundedRect {
     ctx.quadraticCurveTo(x, y, x + radius.tl, y);
     ctx.closePath();
 
-    if (fill) {
+    if (fillStyle) {
+      ctx.fillStyle = fillStyle;
       ctx.fill();
     }
-    if (stroke) {
+    if (strokeStyle) {
+      ctx.strokeStyle = strokeStyle;
       ctx.stroke();
     }
 
