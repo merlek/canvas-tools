@@ -29,6 +29,10 @@
       "Canvas API",
       "animation"
    ],
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/merlek/canvas-tools.git"
+   },
    "author": "merlek",
    "license": "MIT",
    "dependencies": {
