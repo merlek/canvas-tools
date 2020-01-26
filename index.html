@@ -24,33 +24,44 @@
   </body>
   <script src="./dist/CanvasTools.js"></script>
   <script>
-    function ctx(canvasId) {
-      return document.getElementById(canvasId).getContext('2d');
-    }
-    window.addEventListener('load', () => {
-      const x = 100 / 2;
-      const y = 50 / 2;
+    const cnvs = canvasId => document.getElementById(canvasId);
+    const ctx = canvasId => cnvs(canvasId).getContext('2d');
 
+    const w = 100;
+    const h = 50;
+    const x = w / 2;
+    const y = h / 2;
+
+    const btnObj = {
+      x: x - w / 4,
+      y: y - h / 4,
+      width: w / 2,
+      height: h / 2,
+      radius: 5,
+      fillStyle: 'rgb(0,93,157)',
+      hoverStyle: 'rgb(0,74,127)',
+      text: 'Button',
+      font: 'Arial',
+      textStyle: 'white',
+      enabled: true,
+      onClick: () => alert('clicked!'),
+      onMouseEnter: () => {
+        ctx('btn').clearRect(0, 0, w, h);
+        CanvasTools.Button.draw(ctx('btn'), btnObj);
+      },
+      onMouseLeave: () => {
+        ctx('btn').clearRect(0, 0, w, h);
+        CanvasTools.Button.draw(ctx('btn'), btnObj);
+      }
+    };
+
+    window.addEventListener('load', () => {
       const fillStyle = 'blue';
       const strokeStyle = 'black';
 
-      const btn = {
-        x,
-        y,
-        width:50,
-        height:20,
-        radius: 5,
-        fillStyle: 'rgb(0,74,127)',
-        hoverStyle: 'rgb(0,93,157)',
-        text: 'Button',
-        font: 'Arial',
-        textStyle: 'white',
-        enabled: true,
-        onClick: () => {
-          alert('clicked!');
-        }
-      };
-      CanvasTools.Button.draw(ctx('btn'), btn);
+      CanvasTools.Button.draw(ctx('btn'), btnObj);
+      CanvasTools.Mouse.addClickEventListener(cnvs('btn'), [btnObj]);
+      CanvasTools.Mouse.addHoverEventListener(cnvs('btn'), [btnObj]);
 
       CanvasTools.Circle.draw(ctx('circle'), x, y, 20, fillStyle, strokeStyle);
     });
