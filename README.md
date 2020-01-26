@@ -1,2 +1,2 @@
 # canvas-tools
-A web Canvas API manipulation library.
+A web Canvas API manipulation library in typescript.
