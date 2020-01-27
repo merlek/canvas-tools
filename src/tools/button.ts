@@ -9,13 +9,8 @@ export interface Button extends RoundedRect, ClickEventObject, HoverEventObject 
   borderWidth?: number;
   hoverStyle?: string;
   text: string;
-  fontFamily: string;
+  fontFamily?: string;
   textStyle: string | (() => string);
-  state?: 'hover' | undefined;
-  enabled: boolean;
-  onClick: MouseEventListener;
-  onMouseEnter?: MouseEventListener;
-  onMouseLeave?: MouseEventListener;
 }
 export class Button {
   private constructor() {}
@@ -37,7 +32,7 @@ export class Button {
       borderWidth = Math.min(4, (width / 36) * 4),
       hoverStyle,
       text,
-      fontFamily,
+      fontFamily = Text.FONT_FAMILY,
       textStyle,
       state
     }: Button
