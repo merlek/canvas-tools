@@ -8,7 +8,7 @@
       "test": "karma start karma.conf.js",
       "test:watch": "npm run test -- --single-run false",
       "clean": "rm -rf dist",
-      "server": "webpack-dev-server --watch --config webpack.dev.config.js",
+      "start": "webpack-dev-server --watch --config webpack.dev.config.js",
       "build": "npm run build:dev",
       "watch": "npm run clean && npm run buildWebpack:dev -- --watch",
       "build:dev": "npm run clean && npm run buildWebpack:dev",
@@ -36,10 +36,7 @@
    "author": "merlek",
    "license": "MIT",
    "dependencies": {
-      "@types/node": "^13.1.6",
-      "matrix": "merlek/matrix#9cfb728",
-      "vector": "merlek/vector#72f197c",
-      "utility-functions": "merlek/utility-functions#e7a909b"
+      "@types/node": "^13.1.6"
    },
    "devDependencies": {
       "@types/jasmine": "^3.5.1",
