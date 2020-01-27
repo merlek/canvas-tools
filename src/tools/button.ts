@@ -9,7 +9,7 @@ export interface Button extends RoundedRect, ClickEventObject, HoverEventObject 
   borderWidth?: number;
   hoverStyle?: string;
   text: string;
-  fontFamily?: string;
+  font: string | number;
   textStyle: string | (() => string);
 }
 export class Button {
@@ -32,7 +32,7 @@ export class Button {
       borderWidth = Math.min(4, (width / 36) * 4),
       hoverStyle,
       text,
-      fontFamily = Text.FONT_FAMILY,
+      font,
       textStyle,
       state
     }: Button
@@ -68,7 +68,7 @@ export class Button {
       x: x + width / 2,
       y: y + height / 2,
       maxWidth: width * 0.9,
-      font: fontFamily,
+      font,
       fillStyle: typeof textStyle === 'string' ? textStyle : textStyle()
     });
 
