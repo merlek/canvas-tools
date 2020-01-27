@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/animators/index.ts"],"names":[],"mappings":"AAAA,cAAc,uBAAuB,CAAC;AACtC,cAAc,mBAAmB,CAAC;AAClC,cAAc,wBAAwB,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/animators/index.ts"],"names":[],"mappings":"AAAA,cAAc,uBAAuB,CAAC;AACtC,cAAc,mBAAmB,CAAC;AAClC,cAAc,wBAAwB,CAAC;AAEvC,wBAAgB,mBAAmB,CACjC,WAAW,EAAE,MAAM,EACnB,KAAK,SAAM,EACX,MAAM,SAAM,GACX,iBAAiB,CAYnB"}

@@ -7,6 +7,6 @@ export interface Rect {
 }
 export declare class Rect {
     private constructor();
-    static isIntersect: (pos: Point, rect: Rect) => boolean;
+    static contains: (pos: Point, rect: Rect) => boolean;
 }
 //# sourceMappingURL=rect.d.ts.map

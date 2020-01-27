@@ -22,7 +22,7 @@ export class Mouse {
     const handler = (e: MouseEvent) => {
       const pos = getMousePos(e);
       buttons.forEach(button => {
-        if (button.enabled && Rect.isIntersect(pos, button)) {
+        if (button.enabled && Rect.contains(pos, button)) {
           // click event
           button.onClick(e);
         }
@@ -46,7 +46,7 @@ export class Mouse {
       const pos = getMousePos(e);
       let intersect = false;
       buttons.forEach(button => {
-        if (button.enabled && Rect.isIntersect(pos, button)) {
+        if (button.enabled && Rect.contains(pos, button)) {
           // hover event
           if (button.state !== 'hover') {
             button.state = 'hover';
