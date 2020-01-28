@@ -1,5 +1,6 @@
 export * from './button';
 export * from './circle';
+export * from './image';
 export * from './line';
 export * from './mouse';
 export * from './point';
