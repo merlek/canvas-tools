@@ -1,4 +1,4 @@
-import { Point } from './point';
+import { IPoint } from './point';
 export interface IColor {
     r: number;
     g: number;
@@ -6,7 +6,7 @@ export interface IColor {
     a: number;
 }
 export interface IPixel {
-    position: Point;
+    position: IPoint;
     color: IColor;
 }
 export declare class Image {
