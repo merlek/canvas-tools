@@ -7,7 +7,7 @@ export function createCanvasElement(
   width = 600,
   height = 600
 ): HTMLCanvasElement {
-  const canvas = <HTMLCanvasElement>document.createElement('canvas');
+  const canvas = document.createElement('canvas') as HTMLCanvasElement;
   canvas.width = width;
   canvas.height = height;
   canvas.style.cssText = 'width: 100%;';

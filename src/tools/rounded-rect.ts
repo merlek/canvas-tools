@@ -1,14 +1,14 @@
-import { Rect } from './rect';
+import { IRect } from './rect';
 
-export interface RoundedRectRadius {
+export interface IRoundedRectRadius {
   tl: number;
   tr: number;
   br: number;
   bl: number;
 }
 
-export interface RoundedRect extends Rect {
-  radius: number | RoundedRectRadius;
+export interface IRoundedRect extends IRect {
+  radius: number | IRoundedRectRadius;
   fillStyle?: string;
   strokeStyle?: string;
 }
@@ -16,7 +16,7 @@ export class RoundedRect {
   private constructor() {}
   static draw(
     ctx: CanvasRenderingContext2D,
-    { x, y, width, height, radius, fillStyle, strokeStyle }: RoundedRect
+    { x, y, width, height, radius, fillStyle, strokeStyle }: IRoundedRect
   ) {
     if (typeof radius === 'number') {
       radius = {

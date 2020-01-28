@@ -1,5 +1,5 @@
-import { Point } from './point';
-export interface Rect {
+import { IPoint } from './point';
+export interface IRect {
     x: number;
     y: number;
     width: number;
@@ -7,7 +7,7 @@ export interface Rect {
 }
 export declare class Rect {
     private constructor();
-    static contains: (pos: Point, rect: Rect) => boolean;
-    static intersects: (range: Rect, rect2: Rect) => boolean;
+    static contains: (pos: IPoint, rect: IRect) => boolean;
+    static intersects: (range: IRect, rect2: IRect) => boolean;
 }
 //# sourceMappingURL=rect.d.ts.map

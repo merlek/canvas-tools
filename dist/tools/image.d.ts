@@ -1,17 +1,17 @@
 import { Point } from './point';
-export interface Color {
+export interface IColor {
     r: number;
     g: number;
     b: number;
     a: number;
 }
-export interface Pixel {
+export interface IPixel {
     position: Point;
-    color: Color;
+    color: IColor;
 }
 export declare class Image {
     private constructor();
-    static getPixel(ctx: CanvasRenderingContext2D, x: number, y: number): Pixel | undefined;
-    static getCanvasPixels(canvas: HTMLCanvasElement): Pixel[];
+    static getPixel(ctx: CanvasRenderingContext2D, x: number, y: number): IPixel | undefined;
+    static getCanvasPixels(canvas: HTMLCanvasElement): IPixel[];
 }
 //# sourceMappingURL=image.d.ts.map

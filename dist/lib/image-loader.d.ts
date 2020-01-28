@@ -1,15 +1,15 @@
-export interface ImageSet {
+export interface IImageSet {
     [key: string]: HTMLImageElement;
 }
-export interface ImageSourceSet {
+export interface IImageSourceSet {
     [key: string]: string;
 }
 export declare class ImageLoader {
     private loaded;
     private readonly total;
     private readonly images;
-    constructor(sources: ImageSourceSet, callback?: (images: ImageSet) => void);
+    constructor(sources: IImageSourceSet, callback?: (images: IImageSet) => void);
     hasImage(img: string): boolean;
-    onLoad(callback: (images: ImageSet) => void): void;
+    onLoad(callback: (images: IImageSet) => void): void;
 }
 //# sourceMappingURL=image-loader.d.ts.map

@@ -1,17 +1,17 @@
 import { Point } from './point';
-export interface Color {
+export interface IColor {
   r: number;
   g: number;
   b: number;
   a: number;
 }
-export interface Pixel {
+export interface IPixel {
   position: Point;
-  color: Color;
+  color: IColor;
 }
 export class Image {
   private constructor() {}
-  static getPixel(ctx: CanvasRenderingContext2D, x: number, y: number): Pixel | undefined {
+  static getPixel(ctx: CanvasRenderingContext2D, x: number, y: number): IPixel | undefined {
     const data = ctx.getImageData(x, y, 1, 1).data;
     return {
       position: { x, y },
@@ -23,11 +23,11 @@ export class Image {
       }
     };
   }
-  static getCanvasPixels(canvas: HTMLCanvasElement): Pixel[] {
+  static getCanvasPixels(canvas: HTMLCanvasElement): IPixel[] {
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
-    const rgba: Pixel[] = [];
+    const rgba: IPixel[] = [];
 
     for (let i = 0; i < data.length; i += 4) {
       const pixel = Math.floor(i / 4);

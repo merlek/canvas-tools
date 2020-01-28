@@ -1,7 +1,7 @@
-import { Point } from './point';
+import { IPoint } from './point';
 
-export interface Circle {
-  center: Point;
+export interface ICircle {
+  center: IPoint;
   radius: number;
   fillStyle?: string;
   strokeStyle?: string;
@@ -19,7 +19,7 @@ export class Circle {
    * @param fillStyle - the style to fill the circle
    * @param strokeStyle - the style to stroke the circle
    */
-  static draw(ctx: CanvasRenderingContext2D, { center, radius, fillStyle, strokeStyle }: Circle) {
+  static draw(ctx: CanvasRenderingContext2D, { center, radius, fillStyle, strokeStyle }: ICircle) {
     ctx.save();
 
     ctx.beginPath();

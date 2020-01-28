@@ -1,6 +1,6 @@
-import { Point } from './point';
+import { IPoint } from './point';
 
-export interface Rect {
+export interface IRect {
   x: number;
   y: number;
   width: number;
@@ -9,10 +9,10 @@ export interface Rect {
 
 export class Rect {
   private constructor() {}
-  static contains = (pos: Point, rect: Rect) =>
+  static contains = (pos: IPoint, rect: IRect) =>
     pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
 
-  static intersects = (range: Rect, rect2: Rect) =>
+  static intersects = (range: IRect, rect2: IRect) =>
     !(
       range.x > rect2.x + rect2.width ||
       range.x + range.width < rect2.x ||

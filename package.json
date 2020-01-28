@@ -65,7 +65,6 @@
    },
    "pre-commit": [
       "lint",
-      "test",
       "build:prd",
       "git-dist"
    ]

@@ -1,4 +1,4 @@
-export interface TextBox {
+export interface ITextBox {
   text: string;
   x: number;
   y: number;
@@ -25,7 +25,7 @@ export class Text {
       strokeStyle,
       textAlign = 'center',
       textBaseline = 'middle'
-    }: TextBox
+    }: ITextBox
   ) => {
     ctx.save();
 

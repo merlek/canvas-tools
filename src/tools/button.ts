@@ -1,7 +1,7 @@
-import { ClickEventObject, HoverEventObject, MouseEventListener } from './mouse';
-import { RoundedRect } from './rounded-rect';
+import { IClickEventObject, IHoverEventObject } from './mouse';
+import { IRoundedRect, RoundedRect } from './rounded-rect';
 import { Text } from './text';
-export interface Button extends RoundedRect, ClickEventObject, HoverEventObject {
+export interface IButton extends IRoundedRect, IClickEventObject, IHoverEventObject {
   borderWidth?: number;
   hoverStyle?: string;
   text: string;
@@ -31,7 +31,7 @@ export class Button {
       font,
       textStyle,
       state
-    }: Button
+    }: IButton
   ) {
     ctx.save();
 

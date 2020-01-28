@@ -1,14 +1,14 @@
-export interface ImageSet {
+export interface IImageSet {
   [key: string]: HTMLImageElement;
 }
-export interface ImageSourceSet {
+export interface IImageSourceSet {
   [key: string]: string;
 }
 export class ImageLoader {
   private loaded = 0;
   private readonly total: number;
-  private readonly images: ImageSet = {};
-  constructor(sources: ImageSourceSet, callback: (images: ImageSet) => void = () => {}) {
+  private readonly images: IImageSet = {};
+  constructor(sources: IImageSourceSet, callback: (images: IImageSet) => void = () => {}) {
     let t = 0;
     for (const src in sources) {
       if (sources.hasOwnProperty(src)) {
@@ -30,7 +30,7 @@ export class ImageLoader {
   public hasImage(img: string) {
     return this.images[img] != null;
   }
-  public onLoad(callback: (images: ImageSet) => void) {
+  public onLoad(callback: (images: IImageSet) => void) {
     for (const img in this.images) {
       if (this.images.hasOwnProperty(img)) {
         if (this.loaded < this.total) {

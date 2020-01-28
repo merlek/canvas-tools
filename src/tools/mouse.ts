@@ -1,11 +1,11 @@
-import { Rect } from './rect';
+import { IRect, Rect } from './rect';
 
 export type MouseEventListener = (event: MouseEvent) => any;
-export interface ClickEventObject extends Rect {
+export interface IClickEventObject extends IRect {
   enabled: boolean;
   onClick: MouseEventListener;
 }
-export interface HoverEventObject extends Rect {
+export interface IHoverEventObject extends IRect {
   enabled: boolean;
   state?: 'hover';
   onMouseEnter?: MouseEventListener;
@@ -13,7 +13,7 @@ export interface HoverEventObject extends Rect {
 }
 export class Mouse {
   private constructor() {}
-  static addClickEventListener = (canvas: HTMLCanvasElement, ...buttons: ClickEventObject[]) => {
+  static addClickEventListener = (canvas: HTMLCanvasElement, ...buttons: IClickEventObject[]) => {
     const getMousePos = Mouse.getMousePos(canvas);
 
     const handler = (e: MouseEvent) => {
@@ -33,7 +33,7 @@ export class Mouse {
       function: MouseEventListener;
     };
   };
-  static addHoverEventListener = (canvas: HTMLCanvasElement, ...buttons: HoverEventObject[]) => {
+  static addHoverEventListener = (canvas: HTMLCanvasElement, ...buttons: IHoverEventObject[]) => {
     const getMousePos = Mouse.getMousePos(canvas);
 
     const handler = (e: MouseEvent) => {
