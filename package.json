@@ -60,7 +60,7 @@
       "dist/**/*"
    ],
    "prettier": {
-      "printWidth": 80,
+      "printWidth": 100,
       "singleQuote": true
    },
    "pre-commit": [

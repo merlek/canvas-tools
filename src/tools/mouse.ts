@@ -13,10 +13,7 @@ export interface HoverEventObject extends Rect {
 }
 export class Mouse {
   private constructor() {}
-  static addClickEventListener = (
-    canvas: HTMLCanvasElement,
-    ...buttons: ClickEventObject[]
-  ) => {
+  static addClickEventListener = (canvas: HTMLCanvasElement, ...buttons: ClickEventObject[]) => {
     const getMousePos = Mouse.getMousePos(canvas);
 
     const handler = (e: MouseEvent) => {
@@ -36,10 +33,7 @@ export class Mouse {
       function: MouseEventListener;
     };
   };
-  static addHoverEventListener = (
-    canvas: HTMLCanvasElement,
-    ...buttons: HoverEventObject[]
-  ) => {
+  static addHoverEventListener = (canvas: HTMLCanvasElement, ...buttons: HoverEventObject[]) => {
     const getMousePos = Mouse.getMousePos(canvas);
 
     const handler = (e: MouseEvent) => {

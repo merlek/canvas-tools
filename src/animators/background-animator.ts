@@ -5,10 +5,7 @@ export class BackgroundAnimator extends CanvasAnimator {
     super(canvas);
   }
   public setup() {}
-  public draw = (
-    fillStyle = this.fillStyle,
-    ctx: CanvasRenderingContext2D = this.ctx
-  ) => {
+  public draw = (fillStyle = this.fillStyle, ctx: CanvasRenderingContext2D = this.ctx) => {
     ctx.save();
 
     ctx.fillStyle = fillStyle;

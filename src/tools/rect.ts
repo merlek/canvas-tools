@@ -10,10 +10,7 @@ export interface Rect {
 export class Rect {
   private constructor() {}
   static contains = (pos: Point, rect: Rect) =>
-    pos.x > rect.x &&
-    pos.x < rect.x + rect.width &&
-    pos.y < rect.y + rect.height &&
-    pos.y > rect.y;
+    pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
 
   static intersects = (range: Rect, rect2: Rect) =>
     !(

@@ -1,10 +1,7 @@
 import { CanvasAnimator } from './canvas-animator';
 
 export abstract class CanvasGridAnimator extends CanvasAnimator {
-  constructor(
-    protected canvas: HTMLCanvasElement,
-    protected grid: { cols: number; rows: number }
-  ) {
+  constructor(protected canvas: HTMLCanvasElement, protected grid: { cols: number; rows: number }) {
     super(canvas);
   }
   protected x(x: number): number {

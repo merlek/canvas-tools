@@ -19,10 +19,7 @@ export class Circle {
    * @param fillStyle - the style to fill the circle
    * @param strokeStyle - the style to stroke the circle
    */
-  static draw(
-    ctx: CanvasRenderingContext2D,
-    { center, radius, fillStyle, strokeStyle }: Circle
-  ) {
+  static draw(ctx: CanvasRenderingContext2D, { center, radius, fillStyle, strokeStyle }: Circle) {
     ctx.save();
 
     ctx.beginPath();

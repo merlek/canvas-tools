@@ -4,7 +4,8 @@ export interface TextBox {
   y: number;
   maxWidth?: number;
   font: string | number;
-  fillStyle: string;
+  fillStyle?: string;
+  strokeStyle?: string;
   textAlign?: CanvasTextAlign;
   textBaseline?: CanvasTextBaseline;
 }
@@ -21,20 +22,32 @@ export class Text {
       maxWidth,
       font,
       fillStyle,
+      strokeStyle,
       textAlign = 'center',
       textBaseline = 'middle'
     }: TextBox
   ) => {
     ctx.save();
 
-    ctx.fillStyle = fillStyle;
     if (typeof font === 'number') {
       font = Text.getFont(font);
     }
     ctx.font = font;
     ctx.textAlign = textAlign;
     ctx.textBaseline = textBaseline;
-    ctx.fillText(text, x, y, maxWidth);
+
+    if (!fillStyle && !strokeStyle) {
+      fillStyle = 'black';
+    }
+
+    if (fillStyle) {
+      ctx.fillStyle = fillStyle;
+      ctx.fillText(text, x, y, maxWidth);
+    }
+    if (strokeStyle) {
+      ctx.strokeStyle = strokeStyle;
+      ctx.strokeText(text, x, y, maxWidth);
+    }
 
     ctx.restore();
   };

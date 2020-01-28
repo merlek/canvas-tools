@@ -8,10 +8,7 @@ export class ImageLoader {
   private loaded = 0;
   private readonly total: number;
   private readonly images: ImageSet = {};
-  constructor(
-    sources: ImageSourceSet,
-    callback: (images: ImageSet) => void = () => {}
-  ) {
+  constructor(sources: ImageSourceSet, callback: (images: ImageSet) => void = () => {}) {
     let t = 0;
     for (const src in sources) {
       if (sources.hasOwnProperty(src)) {

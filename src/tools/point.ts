@@ -9,13 +9,7 @@ export class Point {
     return { x: x, y: y, z: z };
   }
   static equals = (p1: Point) => (p2: Point) => {
-    return (
-      p1 != null &&
-      p2 != null &&
-      p1.x === p2.x &&
-      p1.y === p2.y &&
-      p1.z === p2.z
-    );
+    return p1 != null && p2 != null && p1.x === p2.x && p1.y === p2.y && p1.z === p2.z;
   };
   static squaredDistance(p1: Point, p2: Point): number {
     return (

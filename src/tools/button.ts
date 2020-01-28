@@ -1,8 +1,4 @@
-import {
-  ClickEventObject,
-  HoverEventObject,
-  MouseEventListener
-} from './mouse';
+import { ClickEventObject, HoverEventObject, MouseEventListener } from './mouse';
 import { RoundedRect } from './rounded-rect';
 import { Text } from './text';
 export interface Button extends RoundedRect, ClickEventObject, HoverEventObject {

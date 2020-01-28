@@ -11,11 +11,7 @@ export interface Pixel {
 }
 export class Image {
   private constructor() {}
-  static getPixel(
-    ctx: CanvasRenderingContext2D,
-    x: number,
-    y: number
-  ): Pixel | undefined {
+  static getPixel(ctx: CanvasRenderingContext2D, x: number, y: number): Pixel | undefined {
     const data = ctx.getImageData(x, y, 1, 1).data;
     return {
       position: { x, y },
