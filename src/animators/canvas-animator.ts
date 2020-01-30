@@ -5,8 +5,8 @@ export abstract class CanvasAnimator {
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     setTimeout(() => {
       this.setup();
+      window.requestAnimationFrame(this.update(0));
     }, 0);
-    window.requestAnimationFrame(this.update(0));
   }
   public abstract draw(state?: any, ctx?: CanvasRenderingContext2D): void;
   public abstract setup(): void;
